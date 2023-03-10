@@ -1,0 +1,76 @@
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
+<description>The minimal mappings for a persistent entity in XML.</description>
+
+    <entity name="Department" class="Entities.Department" access="FIELD">
+        <table name="department"/>
+        <attributes>
+            <id name="code_department"/>
+            <basic name="name">
+                <column name="name" length="30"/>
+            </basic>
+            <basic name="phone">
+                <column name="phone" length="12"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity name="Groups" class="Entities.Groups" access="FIELD">
+        <table name="groups"/>
+        <attributes>
+            <id name="code_group"/>
+            <basic name="curriculum">
+                <column name="curriculum" length="30"/>
+            </basic>
+            <basic name="course">
+                <column name="course" length="12"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity name="Session" class="Entities.Session" access="FIELD">
+        <table name="session"/>
+        <id-class class="Entities.SessionPK"/>
+        <attributes>
+            <id name="id_teacher"/>
+            <id name="code_subject"/>
+            <id name="code_group"/>
+            <id name="week_day"/>
+            <basic name="starts">
+                <column name="starts" length="12"/>
+            </basic>
+            <basic name="finishes">
+                <column name="finishes" length="12"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity name="Subject" class="Entities.Subject" access="FIELD">
+        <table name="subject"/>
+        <attributes>
+            <id name="code_subject"/>
+            <basic name="description">
+                <column name="description" length="30"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity name="Teacher" class="Entities.Teacher" access="FIELD">
+        <table name="teacher"/>
+        <attributes>
+            <id name="id_teacher"/>
+            <basic name="firstname">
+                <column name="firstname" length="30"/>
+            </basic>
+            <basic name="lastname">
+                <column name="lastname" length="30"/>
+            </basic>
+            <basic name="email">
+                <column name="email" length="30"/>
+            </basic>
+            <basic name="code_department">
+                <column name="code_department" length="30"/>
+            </basic>
+        </attributes>
+    </entity>
+
+</entity-mappings>
