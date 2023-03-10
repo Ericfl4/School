@@ -81,6 +81,3 @@ INSERT INTO session VALUES ('2','MP03','ESO2D','Martes','12:00:00','13:00:00');
 INSERT INTO session VALUES ('1','MP04','BACHS1B','Miercoles','10:00:00','11:00:00’);
 INSERT INTO session VALUES ('4','MP05','Primaria3C','Jueves','13:00:00','14:00:00');
 INSERT INTO session VALUES ('5','MP02','BACHC2A','Viernes','09:00:00','10:00:00');
-
-
-
