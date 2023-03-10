@@ -1,6 +1,8 @@
 # School
 # Script de creación:
+
 DROP DATABASE school;
+
 CREATE DATABASE school;
 
 \c school;
