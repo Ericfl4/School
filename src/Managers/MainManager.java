@@ -1,6 +1,7 @@
 package Managers;
 import javax.persistence.EntityManager;
 import java.io.IOException;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import Entities.*;
@@ -27,6 +28,7 @@ public class MainManager {
         fa.printSubject();
         fa.readSessionFile("txts/session.txt");
         fa.printSession();
+
 
 
         for (Session session: fa.llistaSession) {
@@ -61,6 +63,12 @@ public class MainManager {
         for (Session session: fa.llistaSession) {
             mainManager.addSession(session);
         }
+
+        mainManager.listDepartment();
+        mainManager.listTeacher();
+        mainManager.listSession();
+        mainManager.listSubject();
+        mainManager.listGroups();
 
     }
     public void addDepartment(Department department) {
@@ -139,4 +147,71 @@ public class MainManager {
         em.getTransaction().commit();
         em.close();
     }
+
+    public void listDepartment() {
+        System.out.println("Departamentos de la base de datos:");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Department> result = em.createQuery("from Department", Department.class)
+                .getResultList();
+        for (Department department : result) {
+            System.out.println(department.toString());
+        }
+        em.getTransaction().commit();
+        em.close();
+        System.out.println();
+    }
+    public void listTeacher() {
+        System.out.println("Profesores de la base de datos:");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Teacher> result = em.createQuery("from Teacher", Teacher.class)
+                .getResultList();
+        for (Teacher teacher : result) {
+            System.out.println(teacher.toString());
+        }
+        em.getTransaction().commit();
+        em.close();
+        System.out.println();
+    }
+    public void listSession() {
+        System.out.println("Sessiones de la base de datos:");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Session> result = em.createQuery("from Session", Session.class)
+                .getResultList();
+        for (Session session : result) {
+            System.out.println(session.toString());
+        }
+        em.getTransaction().commit();
+        em.close();
+        System.out.println();
+    }
+    public void listSubject() {
+        System.out.println("Asignaturas de la base de datos:");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Subject> result = em.createQuery("from Subject", Subject.class)
+                .getResultList();
+        for (Subject subject : result) {
+            System.out.println(subject.toString());
+        }
+        em.getTransaction().commit();
+        em.close();
+        System.out.println();
+    }
+    public void listGroups() {
+        System.out.println("Grupos de la base de datos:");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<Groups> result = em.createQuery("from Groups", Groups.class)
+                .getResultList();
+        for (Groups groups : result) {
+            System.out.println(groups.toString());
+        }
+        em.getTransaction().commit();
+        em.close();
+        System.out.println();
+    }
+
 }

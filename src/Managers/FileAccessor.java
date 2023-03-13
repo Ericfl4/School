@@ -10,11 +10,13 @@ import Entities.*;
 public class FileAccessor {
     public FileAccessor() {
     }
+
     ArrayList<Department> llistaDepartment = new ArrayList();
     ArrayList<Groups> llistaGroup = new ArrayList();
     ArrayList<Session> llistaSession = new ArrayList();
     ArrayList<Subject> llistaSubject = new ArrayList();
     ArrayList<Teacher> llistaTeacher = new ArrayList();
+
     public void readDepartmentFile(String filename) throws IOException {
         int code_department;
         String name, phone;
@@ -30,11 +32,12 @@ public class FileAccessor {
         }
         br.close();
     }
-
     public void printDepartment() {
+        System.out.println("Departamentos leidos del fichero:");
         for (int i = 0; i < llistaDepartment.size(); i++) {
             System.out.println(llistaDepartment.get(i).toString());
         }
+        System.out.println();
     }
     public void readGroupFile(String filename) throws IOException {
         String code_group, curriculum, course;
@@ -53,9 +56,11 @@ public class FileAccessor {
 
     }
     public void printGroup() {
+        System.out.println("Grupos leidos del fichero:");
         for (int i = 0; i < llistaGroup.size(); i++) {
             System.out.println(llistaGroup.get(i).toString());
         }
+        System.out.println();
     }
     public void readTeacherFile(String filename) throws IOException {
         int id_teacher, department;
@@ -81,9 +86,11 @@ public class FileAccessor {
 
     }
     public void printTeacher() {
+        System.out.println("Profesores leidos del fichero:");
         for (int i = 0; i < llistaTeacher.size(); i++) {
             System.out.println(llistaTeacher.get(i).toString());
         }
+        System.out.println();
     }
     public void readSubjectFile(String filename) throws IOException {
         String code_subject, description;
@@ -102,9 +109,11 @@ public class FileAccessor {
 
     }
     public void printSubject() {
+        System.out.println("Asignaturas leidas del fichero:");
         for (int i = 0; i < llistaSubject.size(); i++) {
             System.out.println(llistaSubject.get(i).toString());
         }
+        System.out.println();
     }
     public void readSessionFile(String filename) throws IOException {
         int teacher;
@@ -126,8 +135,10 @@ public class FileAccessor {
         br.close();
     }
     public void printSession() {
+        System.out.println("Sesiones leidas del fichero:");
         for (int i = 0; i < llistaSession.size(); i++) {
             System.out.println(llistaSession.get(i).toString());
         }
+        System.out.println();
     }
 }
